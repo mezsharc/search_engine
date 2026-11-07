@@ -3,7 +3,7 @@ import pandas as pd
 import requests
 
 movies = pd.read_csv('tmdb_5000_movies.csv')
-credits = pd.read_csv('tmdb_5000_credits.csv')
+credits = pd.read_csv('tmdb5000_credits.csv')
 
 
 
@@ -41,18 +41,6 @@ def convert3(obj):
     return L
 
 movies['cast'] = movies['cast'].apply(convert3)
-
-
-
-def fetch_director(obj):
-    L =[]
-    for i in ast.literal_eval(obj):
-        if (i['job'] == 'Director'):
-            L.append(i['name'])
-            break
-    return L
-
-movies['crew'] = movies['crew'].apply(fetch_director)
 
 
 movies['overview'] = movies['overview'].apply(lambda x:x.split())
