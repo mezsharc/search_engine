@@ -157,6 +157,14 @@ nav a:hover {
     padding: 10px;
     
 }
+.head h1{
+    align-items:center;
+    color: rgb(109, 82, 14);
+    font-size: 30px;
+    font-family: cursive;
+
+    
+}
 
 
 footer {
@@ -251,6 +259,11 @@ footer {
             {% endfor %}
         </div>
         {% endif %}
+        {% if found %}
+        <div class = "fnd">
+            <h1>-- -- -- -- --   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MOVIE NO FOUND &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- -- -- -- --</h1>
+        </div>
+       {% endif %}
 
     </section>
     
