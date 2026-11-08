@@ -87,7 +87,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 similarity = cosine_similarity(vector)
 
 def fetch_poster(i):
-  response =  requests.get(f'https://api.themoviedb.org/3/movie/{i}?api_key=''&language=en-US')
+  response =  requests.get(f'https://api.themoviedb.org/3/movie/{i}?api_key=${{secrets.dex_key}}&language=en-US')
 
   data = response.json()
   return ("https://image.tmdb.org/t/p/w500/" + data['poster_path'])
