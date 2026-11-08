@@ -12,12 +12,15 @@ def home():
     name = ""
     movie_name = ""
     searched = False
+    found = False
     if request.method == "POST":
-        searched = True
+        
         movie = request.form.get("name")
         if movie in moviess:
+            searched = True
             name,movie_name = recommend(movie)
         else:
+            found = True
             name = "movie not found"
         
     return render_template(
@@ -25,7 +28,8 @@ def home():
     movies=moviess,
     searched = searched ,
     result = name,
-    movie_name = movie_name )
+    movie_name = movie_name,
+    found = found)
 
 if __name__ == "__main__":
     app.run(debug=True)
